@@ -1,7 +1,7 @@
-# Never upload the desktop tool or student data to the deployment.
-bulk_submit.py
-setup.bat
-run.bat
+.vercel
+.env*
+# Not needed on the hosted site
+server.js
+start.bat
 students.xlsx
-results_*.csv
 README.md

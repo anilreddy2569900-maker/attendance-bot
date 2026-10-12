@@ -1,7 +1,5 @@
-__pycache__/
-*.pyc
 results_*.csv
 ~$*.xlsx
-
+node_modules/
 .vercel
 .env*
