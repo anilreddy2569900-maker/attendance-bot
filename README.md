@@ -19,18 +19,20 @@ One student per row: name, then UG number (just the number, like `41011`).
 | Rohan Mehta | 41011 |
 | Simran Kaur | 41408 |
 
-## Use on Windows (optional)
+## Run it on your own computer (optional)
 
-1. Install [Python](https://www.python.org/downloads/) (tick **Add python.exe to PATH**).
+Same website, running on your machine instead of the hosted one.
+
+1. Install [Node.js](https://nodejs.org) (the big green **LTS** button).
 2. Download this project (**Code → Download ZIP**) and extract it.
-3. Double-click `setup.bat` once.
-4. Put your students in `students.xlsx`, then double-click `run.bat` and type the OTP.
+3. Double-click `start.bat`. Your browser opens the page. (On Mac/Linux: run `node server.js`, then open http://localhost:3000.)
+4. Use it exactly like the website. Close the black window to stop.
 
 ## What's in this project
 
 | File | What it is |
 |---|---|
-| `web/` | The website |
-| `api/submit.js` | The website's server part (needed by the website) |
-| `bulk_submit.py`, `setup.bat`, `run.bat` | The Windows version |
+| `web/` | The page you see |
+| `api/submit.js` | Sends each attendance request (used by the website and by `server.js`) |
+| `server.js`, `start.bat` | Runs it on your own computer |
 | `students.xlsx` | Sample student list |
