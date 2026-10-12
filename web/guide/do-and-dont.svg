@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 380" role="img" aria-label="What works and what does not when writing students">
+<style>
+text{font-family:system-ui,Segoe UI,Arial,sans-serif}
+.l{opacity:0;animation:in .45s forwards}
+@keyframes in{from{opacity:0;transform:translateX(-10px)}to{opacity:1;transform:none}}
+.l1{animation-delay:.2s}.l2{animation-delay:.6s}.l3{animation-delay:1s}.l4{animation-delay:1.4s}.l5{animation-delay:1.8s}
+code{font-family:Consolas,monospace}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;opacity:1!important}.pulse{opacity:.25!important}}
+</style>
+<rect x="10" y="10" width="335" height="360" rx="12" fill="#e2f3e9"/>
+<rect x="355" y="10" width="335" height="360" rx="12" fill="#fbe6e4"/>
+<text x="28" y="44" font-size="19" font-weight="700" fill="#177245">✔ These work</text>
+<text x="373" y="44" font-size="19" font-weight="700" fill="#b3261e">✘ These get skipped / go wrong</text>
+<g font-size="15" fill="#1c1f26">
+<g class="l l1"><text x="28" y="86" font-family="Consolas,monospace">Rohan Mehta 41923</text><text x="28" y="106" font-size="12" fill="#177245">name first</text>
+<text x="373" y="86" font-family="Consolas,monospace">Rohan Mehta UG-41923</text><text x="373" y="106" font-size="12" fill="#b3261e">odd format — write only the number</text></g>
+<g class="l l2"><text x="28" y="148" font-family="Consolas,monospace">41923 Rohan Mehta</text><text x="28" y="168" font-size="12" fill="#177245">number first is fine too</text>
+<text x="373" y="148" font-family="Consolas,monospace">Rohan Mehta 4I923</text><text x="373" y="168" font-size="12" fill="#b3261e">letter I instead of 1 (or O for 0)</text></g>
+<g class="l l3"><text x="28" y="210" font-family="Consolas,monospace">Rohan Mehta,41923</text><text x="28" y="230" font-size="12" fill="#177245">commas / tabs / spaces all fine</text>
+<text x="373" y="210" font-family="Consolas,monospace">Rohan Mehta 41923</text><text x="373" y="228" font-family="Consolas,monospace">Rohan Mehta 41923</text><text x="373" y="248" font-size="12" fill="#b3261e">same student twice — second is skipped</text></g>
+<g class="l l4"><text x="28" y="272" font-family="Consolas,monospace">Rohan Mehta UG/26/41923</text><text x="28" y="292" font-size="12" fill="#177245">full ID works (don't mix with plain numbers)</text>
+<text x="373" y="290" font-family="Consolas,monospace">Rohan Mehta</text><text x="373" y="310" font-size="12" fill="#b3261e">no number on the line — skipped</text></g>
+<g class="l l5"><text x="28" y="334" font-family="Consolas,monospace">Name | UG Number  (top row)</text><text x="28" y="354" font-size="12" fill="#177245">heading row is skipped automatically</text>
+<text x="373" y="340" font-size="13">Extra number columns (Sl. No, phone)?</text><text x="373" y="358" font-size="12" fill="#b3261e">Add a "UG Number" heading so the right one is used</text></g>
+</g>
+</svg>

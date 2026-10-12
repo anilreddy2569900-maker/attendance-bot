@@ -8,7 +8,7 @@ import submit from "./api/submit.js";
 
 const WEB = path.join(path.dirname(fileURLToPath(import.meta.url)), "web");
 const PORT = process.env.PORT || 3000;
-const TYPES = { ".html": "text/html", ".js": "text/javascript", ".css": "text/css" };
+const TYPES = { ".html": "text/html", ".js": "text/javascript", ".css": "text/css", ".svg": "image/svg+xml" };
 
 http
   .createServer(async (req, res) => {
