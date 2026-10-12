@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 300" role="img" aria-label="A spreadsheet with Name in column A and UG Number in column B, one student per row">
+<style>
+text{font-family:system-ui,Segoe UI,Arial,sans-serif}
+.row{opacity:0;animation:in .5s forwards}
+.r1{animation-delay:.4s}.r2{animation-delay:1.1s}.r3{animation-delay:1.8s}.r4{animation-delay:2.5s}
+@keyframes in{from{opacity:0;transform:translateX(-14px)}to{opacity:1;transform:none}}
+.pulse{animation:p 2.4s ease-in-out 3.2s infinite backwards}
+@keyframes p{0%,100%{opacity:.25}50%{opacity:.7}}
+.note{opacity:0;animation:in .6s 3.2s forwards}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;opacity:1!important}.pulse{opacity:.25!important}}
+</style>
+<rect width="640" height="300" rx="14" fill="#ffffff" stroke="#d5d9e0"/>
+<rect x="30" y="24" width="360" height="30" fill="#eef0f4"/>
+<text x="42" y="44" font-size="14" fill="#6b7280">A</text><text x="222" y="44" font-size="14" fill="#6b7280">B</text>
+<g font-size="17" fill="#1c1f26">
+<g class="row r1"><rect x="30" y="58" width="360" height="40" fill="#e8f0fe"/><text x="42" y="84" font-weight="700">Name</text><text x="222" y="84" font-weight="700">UG Number</text></g>
+<g class="row r2"><rect x="30" y="98" width="360" height="40" fill="none" stroke="#e3e5e9"/><text x="42" y="124">Rohan Mehta</text><text x="222" y="124">41923</text></g>
+<g class="row r3"><rect x="30" y="138" width="360" height="40" fill="none" stroke="#e3e5e9"/><text x="42" y="164">Simran Kaur</text><text x="222" y="164">43517</text></g>
+<g class="row r4"><rect x="30" y="178" width="360" height="40" fill="none" stroke="#e3e5e9"/><text x="42" y="204">Aarav Singh</text><text x="222" y="204">40876</text></g>
+</g>
+<rect class="pulse" x="210" y="98" width="180" height="120" fill="#2f9e5f"/>
+<g class="note">
+<path d="M400 160 H440" stroke="#2f9e5f" stroke-width="3"/><path d="M432 152 L442 160 L432 168" fill="none" stroke="#2f9e5f" stroke-width="3"/>
+<text x="452" y="150" font-size="16" font-weight="700" fill="#177245">Just the number</text>
+<text x="452" y="172" font-size="14" fill="#6b7280">no UG/26/ — we add it</text>
+</g>
+<text x="30" y="256" font-size="15" fill="#6b7280">① One student per row   ② Name in one column, number in another</text>
+<text x="30" y="278" font-size="15" fill="#6b7280">③ The top "Name / UG Number" row is optional</text>
+</svg>

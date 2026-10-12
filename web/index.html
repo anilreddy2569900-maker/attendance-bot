@@ -26,22 +26,35 @@
         <p class="hint">Your list is remembered on this device — you only need to upload again when the students change.</p>
       </div>
 
-      <details class="format">
-        <summary>Excel format — what the sheet should look like</summary>
-        <table class="sample">
-          <thead><tr><th></th><th>A</th><th>B</th></tr></thead>
-          <tbody>
-            <tr><td><b>1</b></td><td>Name</td><td>UG Number</td></tr>
-            <tr><td><b>2</b></td><td>Rohan Mehta</td><td>41923</td></tr>
-            <tr><td><b>3</b></td><td>Simran Kaur</td><td>43517</td></tr>
-          </tbody>
-        </table>
+      <details class="format" id="guide" open>
+        <summary>How to add your students (read this once)</summary>
+        <p class="lead">Pick <b>any one</b> of these three ways. The page works out the rest.</p>
+        <img class="guide-img" src="guide/three-ways.svg" alt="Three ways: Excel or CSV file, text file, or paste">
+
+        <h3>Way 1 — Excel (.xlsx) or CSV</h3>
+        <ol>
+          <li>Open Excel. In the first row type <b>Name</b> and <b>UG Number</b> (optional, but good).</li>
+          <li>Type one student per row: name in one column, the number in the next.</li>
+          <li>Save it, then drop the file on this page. A <b>CSV</b> is just a simple version of the same table: in Excel choose <i>Save As → CSV</i>.</li>
+        </ol>
+        <img class="guide-img" src="guide/excel-sheet.svg" alt="Spreadsheet with Name and UG Number columns">
+
+        <h3>Way 2 — Text file (.txt)</h3>
+        <p>Open Notepad. Type one student per line, like <code>Rohan Mehta 41923</code>. Save as a <b>.txt</b> file and drop it here.</p>
+
+        <h3>Way 3 — Paste</h3>
+        <p>Open <b>“Or paste the list instead”</b> below, paste your lines, press <b>Add pasted list</b>. No file needed.</p>
+
+        <h3>What works and what doesn't</h3>
+        <img class="guide-img" src="guide/do-and-dont.svg" alt="What works and what does not">
         <ul class="rules">
-          <li><b>One student per row:</b> name in one column, UG number in another. Column order doesn't matter — the number column is found automatically.</li>
-          <li><b>UG number = just the number</b>, like <code>41923</code>. Do <b>not</b> type <code>UG/26/41923</code> — the site adds <code>UG/26/</code> itself. (Full IDs still work if you already have them.)</li>
-          <li><b>Header row is optional</b> — a row saying “Name / UG Number” is skipped automatically.</li>
-          <li><b>Empty rows, duplicates and typos</b> (like <code>4I923</code> with a letter I) are skipped and listed as warnings.</li>
-          <li>Also works with <b>.csv</b>, <b>.txt</b>, or a list pasted as <code>Name&nbsp;number</code> per line.</li>
+          <li><b>UG number = only the number</b>, like <code>41923</code>. The site adds <code>UG/26/</code> for you.</li>
+          <li><b>Name first or number first — both work.</b> Just keep each student on one row/line.</li>
+          <li><b>Excel reads the first sheet only.</b></li>
+          <li><b>Mistakes are skipped, not guessed:</b> typos, blank rows and duplicates show up as yellow warnings under the list.</li>
+          <li><b>Always check the list</b> that appears after you add students. If a name is missing, fix it and add again.</li>
+          <li><b>Adding again adds to the list</b> (it doesn't replace it). Use <b>×</b> to remove one student or <b>Clear list</b> to start over.</li>
+          <li>Your list is saved <b>on this device and browser only</b>. On another phone or computer, add it again.</li>
         </ul>
       </details>
 
@@ -92,7 +105,7 @@
     </section>
 
     <footer class="foot">
-      Results mean the same as the desktop tool:
+      What the results mean:
       <b class="s-ok">OK</b> accepted ·
       <b class="s-fail">FAIL</b> rejected (wrong OTP&nbsp;?) ·
       <b class="s-error">ERROR</b> no reply (safe to retry) ·

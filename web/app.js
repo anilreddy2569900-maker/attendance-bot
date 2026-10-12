@@ -54,15 +54,23 @@ function classify(reached, msg) {
 
 // ---------------------------------------------------------------- student list
 function bestColumn(rows, test) {
+  // The column with the most matches wins. On a tie, the column with the
+  // longer values wins (so UG numbers beat a 1, 2, 3... serial-number column).
   const counts = new Map();
+  const sizes = new Map();
   for (const r of rows) {
     r.forEach((v, i) => {
-      if (test(norm(v))) counts.set(i, (counts.get(i) || 0) + 1);
+      const s = norm(v);
+      if (test(s)) {
+        counts.set(i, (counts.get(i) || 0) + 1);
+        sizes.set(i, (sizes.get(i) || 0) + s.length);
+      }
     });
   }
-  let best = null, bestN = 0;
+  let best = null, bestN = 0, bestSize = 0;
   for (const [i, n] of counts) {
-    if (n > bestN) { best = i; bestN = n; }
+    const size = sizes.get(i);
+    if (n > bestN || (n === bestN && size > bestSize)) { best = i; bestN = n; bestSize = size; }
   }
   return best;
 }
@@ -214,6 +222,8 @@ function loadSavedList() {
     const saved = JSON.parse(raw);
     if (Array.isArray(saved) && saved.length) {
       students = saved;
+      const g = $("guide");
+      if (g) g.open = false;       // returning user: the list is already there
       renderPreview([], "saved on this device — upload again only to change it");
       updateRunState();
     }

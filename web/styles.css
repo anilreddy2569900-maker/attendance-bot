@@ -362,3 +362,10 @@ tr.working td { opacity: 0.55; }
   .run-row { flex-direction: column; }
   .card-head { flex-direction: column; align-items: flex-start; }
 }
+
+/* student-list guide */
+.format .lead { margin: 4px 0 10px; }
+.format h3 { margin: 18px 0 6px; font-size: 16px; }
+.format ol { margin: 6px 0; padding-left: 20px; }
+.format p { margin: 6px 0; }
+.guide-img { display: block; width: 100%; height: auto; margin: 10px 0; border-radius: 10px; }
