@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Attendance — bulk submit</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="wrap">
+    <header class="head">
+      <h1>Attendance</h1>
+      <p>Upload the student list once, then just type the OTP and hit Run.</p>
+    </header>
+
+    <!-- 1. students -->
+    <section class="card" id="studentsCard">
+      <div class="card-head">
+        <h2><span class="step">1</span> Students</h2>
+        <button class="btn ghost small" id="clearList" hidden>Clear list</button>
+      </div>
+
+      <div class="drop" id="drop">
+        <input type="file" id="file" accept=".xlsx,.xlsm,.csv,.txt" hidden>
+        <p><strong>Drop students.xlsx here</strong> or <button class="btn link" id="browse">choose a file</button></p>
+        <p class="hint">Your list is remembered on this device — you only need to upload again when the students change.</p>
+      </div>
+
+      <details class="format">
+        <summary>Excel format — what the sheet should look like</summary>
+        <table class="sample">
+          <thead><tr><th></th><th>A</th><th>B</th></tr></thead>
+          <tbody>
+            <tr><td><b>1</b></td><td>Name</td><td>UG Number</td></tr>
+            <tr><td><b>2</b></td><td>Rohan Mehta</td><td>41923</td></tr>
+            <tr><td><b>3</b></td><td>Simran Kaur</td><td>43517</td></tr>
+          </tbody>
+        </table>
+        <ul class="rules">
+          <li><b>One student per row:</b> name in one column, UG number in another. Column order doesn't matter — the number column is found automatically.</li>
+          <li><b>UG number = just the number</b>, like <code>41923</code>. Do <b>not</b> type <code>UG/26/41923</code> — the site adds <code>UG/26/</code> itself. (Full IDs still work if you already have them.)</li>
+          <li><b>Header row is optional</b> — a row saying “Name / UG Number” is skipped automatically.</li>
+          <li><b>Empty rows, duplicates and typos</b> (like <code>4I923</code> with a letter I) are skipped and listed as warnings.</li>
+          <li>Also works with <b>.csv</b>, <b>.txt</b>, or a list pasted as <code>Name&nbsp;number</code> per line.</li>
+        </ul>
+      </details>
+
+      <details class="paste-box">
+        <summary>Or paste the list instead</summary>
+        <textarea id="paste" rows="4" placeholder="Rohan Mehta 41923&#10;Simran Kaur 43517&#10;..."></textarea>
+        <button class="btn small" id="pasteBtn">Add pasted list</button>
+      </details>
+
+      <div id="previewWrap" hidden>
+        <p class="count" id="count"></p>
+        <ul class="preview" id="preview"></ul>
+        <div class="warn" id="warnings"></div>
+      </div>
+    </section>
+
+    <!-- 2. run -->
+    <section class="card">
+      <h2><span class="step">2</span> Run</h2>
+      <div class="run-row">
+        <input id="otp" type="text" inputmode="numeric" autocomplete="one-time-code"
+               placeholder="Enter OTP" aria-label="OTP">
+        <button class="btn primary" id="run" disabled>Run</button>
+      </div>
+      <p class="hint" id="runHint">Load a student list first.</p>
+    </section>
+
+    <!-- 3. results -->
+    <section class="card" id="resultsCard" hidden>
+      <div class="card-head">
+        <h2><span class="step">3</span> Results</h2>
+        <div class="actions">
+          <button class="btn small" id="retry" hidden>Retry failed</button>
+          <button class="btn small" id="csv" hidden>Download CSV</button>
+        </div>
+      </div>
+
+      <div class="summary" id="summary"></div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Status</th><th>UG number</th><th>Name</th><th>Server reply</th></tr>
+          </thead>
+          <tbody id="results"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <footer class="foot">
+      Results mean the same as the desktop tool:
+      <b class="s-ok">OK</b> accepted ·
+      <b class="s-fail">FAIL</b> rejected (wrong OTP&nbsp;?) ·
+      <b class="s-error">ERROR</b> no reply (safe to retry) ·
+      <b class="s-check">CHECK</b> read the message yourself.
+    </footer>
+  </main>
+
+  <script src="xlsx.full.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

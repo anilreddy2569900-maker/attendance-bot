@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+results_*.csv
+~$*.xlsx
+
+.vercel
+.env*
