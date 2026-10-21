@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Posts</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="wrap">
+    <header class="head">
+      <nav class="nav"><a href="./">Attendance</a> · <b>Posts</b></nav>
+      <h1>Posts</h1>
+      <p>Paste a link to a Twitter / X post. It shows here with its text, pictures and video.</p>
+    </header>
+
+    <section class="card">
+      <h2>Add a post</h2>
+      <div class="run-row">
+        <input id="link" class="field" type="url" inputmode="url" autocomplete="off"
+               placeholder="https://x.com/someone/status/1234567890" aria-label="Link to a post">
+        <button class="btn primary" id="add">Add</button>
+      </div>
+      <p class="hint">On X or Twitter, tap <b>Share → Copy link</b> on a post and paste it here. You can paste several links at once.
+        Posts you add are saved <b>on this device only</b>.</p>
+      <div class="warn" id="postWarnings"></div>
+    </section>
+
+    <section id="posts" class="posts"></section>
+    <p class="hint empty" id="empty">No posts yet.</p>
+  </main>
+
+  <script src="posts.js"></script>
+</body>
+</html>
