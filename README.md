@@ -42,18 +42,6 @@ Open **"Or paste the list instead"** on the page, paste your lines, press **Add 
 - Adding again **adds** to the list. Use **×** to remove one student, **Clear list** to start over.
 - The list is saved **on that device and browser only**. On another device, add it again.
 
-## Twitter / X posts (with pictures and video)
-
-Open **Posts** at the top of the page (or `/posts.html`).
-
-1. On X or Twitter, tap **Share → Copy link** on a post.
-2. Paste the link and press **Add**. You can paste several links at once.
-3. The post shows with its text, all its pictures (tap one for full size) and any video or GIF, playable right on the page. **Open video** opens the .mp4 so you can save it.
-
-Posts you add are saved **on that device only** (× removes one). To show posts to **everyone** who opens the site, put their links in `web/posts.json`, like `["https://x.com/someone/status/1234567890"]`.
-
-No Twitter account or API key is needed. Private, deleted and age-restricted posts can't be shown.
-
 ## Run it on your own computer (optional)
 
 Same website, running on your machine instead of the hosted one.
@@ -69,7 +57,5 @@ Same website, running on your machine instead of the hosted one.
 |---|---|
 | `web/` | The page you see (`web/guide/` has the pictures) |
 | `api/submit.js` | Sends each attendance request (used by the website and by `server.js`) |
-| `api/tweet.js` | Fetches a Twitter / X post's text, pictures and video for the Posts page |
-| `web/posts.json` | Post links shown to everyone on the Posts page |
 | `server.js`, `start.bat` | Runs it on your own computer |
 | `students.xlsx` | Sample student list |

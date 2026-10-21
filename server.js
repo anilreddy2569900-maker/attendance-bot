@@ -1,33 +1,29 @@
 // Runs the website on your own computer: node server.js
-// Same page and same /api code as the hosted site. No packages needed.
+// Same page and same /api/submit code as the hosted site. No packages needed.
 import http from "node:http";
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import submit from "./api/submit.js";
-import tweet from "./api/tweet.js";
 
 const WEB = path.join(path.dirname(fileURLToPath(import.meta.url)), "web");
 const PORT = process.env.PORT || 3000;
-const TYPES = { ".html": "text/html", ".js": "text/javascript", ".css": "text/css", ".svg": "image/svg+xml", ".json": "application/json" };
-const API = { "/api/submit": submit, "/api/tweet": tweet };
+const TYPES = { ".html": "text/html", ".js": "text/javascript", ".css": "text/css", ".svg": "image/svg+xml" };
 
 http
   .createServer(async (req, res) => {
     const url = new URL(req.url, "http://localhost");
 
-    const api = API[url.pathname];
-    if (api) {
+    if (url.pathname === "/api/submit") {
       let raw = "";
       for await (const chunk of req) raw += chunk;
       try { req.body = JSON.parse(raw || "{}"); } catch { req.body = {}; }
-      req.query = Object.fromEntries(url.searchParams);
       res.status = (code) => ((res.statusCode = code), res);
       res.json = (obj) => {
         res.setHeader("Content-Type", "application/json");
         res.end(JSON.stringify(obj));
       };
-      return api(req, res);
+      return submit(req, res);
     }
 
     const name = url.pathname === "/" ? "index.html" : path.normalize(url.pathname).replace(/^(\.\.[/\\])+/, "");
